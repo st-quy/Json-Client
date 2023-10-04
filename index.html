@@ -1,32 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Json Server by Quý Bự</title>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager User by Quý Bự</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
     <div class="container mx-auto">
-        <h1 class="text-center text-4xl text-indigo-400 py-12">JSON Server by Quý Bự</h1>
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase  tracking-wider">Employee</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase  tracking-wider">Status</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase  tracking-wider">Role</th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200" id="tbody">
-               
-            </tbody>
-        </table>
+      <h1 class="text-center text-4xl text-indigo-400 py-12">Manager User</h1>
+      <button
+        class="button-add"
+        onclick="document.getElementById('id01').style.display='block'"
+      >
+        Add User
+      </button>
+      <table class="min-w-full divide-y divide-gray-200 mt-6" id="tableUser">
+        <thead class="bg-gray-50">
+          <tr>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Employee
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Status
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Role
+            </th>
+            <th
+              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200" id="tbody"></tbody>
+      </table>
+    </div>
+    <!-- Modal content -->
+    <div id="id01" class="modal">
+      <span
+        onclick="document.getElementById('id01').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >X</span
+      >
+      <form class="modal-content" onsubmit="handleSubmit(event)">
+        <div class="container">
+          <h1>Add User</h1>
+          <p>Please fill in this form to add user.</p>
+          <hr />
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" required />
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required />
+
+          <label for="profile"><b>Profile</b></label>
+          <input
+            type="text"
+            placeholder="Enter Profile"
+            name="profile"
+            required
+          />
+
+          <label for="status"><b>Status</b></label>
+          <input
+            type="text"
+            placeholder="Enter Status"
+            name="status"
+            required
+          />
+
+          <label for="role"><b>Role</b></label>
+          <input type="text" placeholder="Enter Role" name="role" required />
+
+          <div class="clearfix">
+            <button
+              type="button"
+              onclick="document.getElementById('id01').style.display='none'"
+              class="cancelbtn"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="signupbtn">Add</button>
+          </div>
+        </div>
+      </form>
     </div>
 
-
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>
